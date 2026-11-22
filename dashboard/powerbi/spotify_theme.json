@@ -1,0 +1,33 @@
+{
+  "name": "Spotify Dark",
+  "dataColors": ["#1DB954", "#1ED760", "#169C46", "#B3B3B3", "#535353", "#FFFFFF", "#7AE09A", "#0E6B2E"],
+  "background": "#121212",
+  "foreground": "#FFFFFF",
+  "tableAccent": "#1DB954",
+  "good": "#1DB954",
+  "neutral": "#B3B3B3",
+  "bad": "#E22134",
+  "maximum": "#1DB954",
+  "center": "#B3B3B3",
+  "minimum": "#E22134",
+  "textClasses": {
+    "callout": {"fontSize": 28, "fontFace": "Segoe UI Semibold", "color": "#1DB954"},
+    "title": {"fontSize": 14, "fontFace": "Segoe UI Semibold", "color": "#FFFFFF"},
+    "header": {"fontSize": 12, "fontFace": "Segoe UI Semibold", "color": "#FFFFFF"},
+    "label": {"fontSize": 10, "fontFace": "Segoe UI", "color": "#B3B3B3"}
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{"color": {"solid": {"color": "#191414"}}, "transparency": 0}],
+        "border": [{"show": true, "color": {"solid": {"color": "#282828"}}, "radius": 8}],
+        "title": [{"show": true, "fontColor": {"solid": {"color": "#FFFFFF"}}, "fontFamily": "Segoe UI Semibold"}]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{"color": {"solid": {"color": "#121212"}}, "transparency": 0}]
+      }
+    }
+  }
+}

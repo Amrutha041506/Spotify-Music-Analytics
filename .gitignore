@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+# Secrets / local config
+.env
+# Data (large - download separately, see docs/setup_guide.md)
+dataset/raw/*
+dataset/processed/*
+!dataset/raw/.gitkeep
+!dataset/processed/.gitkeep
+dashboard/powerbi/data/
+# Generated reports (re-create with `python -m src.pipeline`)
+reports/*
+!reports/.gitkeep
+# Power BI temp files
+*.pbix.bak
+.~*
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

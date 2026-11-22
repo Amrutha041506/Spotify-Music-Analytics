@@ -1,0 +1,46 @@
+# Central project settings. Paths are relative to the project root.
+# Any path can be overridden with an environment variable (see .env.example).
+paths:
+  raw_dir: dataset/raw
+  processed_dir: dataset/processed
+  reports_dir: reports
+  powerbi_dir: dashboard/powerbi/data
+  raw_filename: ""            # blank = auto-detect the CSV inside raw_dir
+  clean_csv: tracks_clean.csv
+  clean_parquet: tracks_clean.parquet
+
+loading:
+  chunk_size: 200000          # rows per chunk when reading very large CSV files
+
+# Raw column name -> canonical column name. Lets the same pipeline handle the
+# 114k "Spotify Tracks Dataset" and the ~1M "Spotify 1 Million Tracks" files.
+# Names are compared after lower-casing and stripping whitespace.
+column_aliases:
+  artist_name: artists
+  artist: artists
+  genre: track_genre
+  track: track_name
+  name: track_name
+  id: track_id
+  album: album_name
+
+cleaning:
+  max_duration_min: 60        # tracks longer than this are treated as invalid
+  min_year: 1900
+  tempo_range: [30, 300]      # outside -> tempo set to missing (row kept)
+  loudness_range: [-60, 5]    # outside -> row dropped
+  duration_outlier_iqr: 3.0   # IQR multiplier for the is_duration_outlier flag
+  fill_unknown_genre: true
+
+analysis:
+  min_tracks_per_artist: 5    # artists need this many tracks to be ranked
+  min_tracks_per_genre: 20    # genres need this many tracks to be ranked
+  popular_quantile: 0.90      # "popular" = top 10 % of tracks by popularity
+  plot_sample_size: 50000     # rows sampled for scatter / hexbin plots
+  random_seed: 42
+
+ollama:
+  host: http://localhost:11434
+  model: llama3.1
+  timeout_seconds: 120
+  temperature: 0.1
